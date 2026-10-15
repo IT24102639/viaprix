@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import Motion from "./motion";
+import Platform from "./platform";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -53,6 +55,7 @@ export default function Home() {
   const [sent, setSent] = useState(false);
   return (
     <>
+      <Motion />
       <header>
         <a href="#" className="brand">
           <img src="/logo.svg" alt="" />
@@ -63,6 +66,9 @@ export default function Home() {
         <nav className={menu ? "open" : ""}>
           <a href="#services" onClick={() => setMenu(false)}>
             What we do
+          </a>
+          <a href="#saas" onClick={() => setMenu(false)}>
+            SaaS platform
           </a>
           <a href="#approach" onClick={() => setMenu(false)}>
             Our approach
@@ -89,15 +95,13 @@ export default function Home() {
               <span className="live-dot" /> BUILT FOR WHAT’S NEXT
             </div>
             <h1>
-              Your vision.
+              Your next big move.
               <br />
-              Our technology.
-              <br />
-              <span>Ahead, together.</span>
+              <span>Powered by Viaprix.</span>
             </h1>
             <p>
-              Smart software for ambitious businesses. We build ERP, POS, and
-              custom solutions that turn your next big move into reality.
+              From everyday operations to extraordinary ideas. ERP, POS, SaaS,
+              and custom software that move your business forward.
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#contact">
@@ -108,11 +112,15 @@ export default function Home() {
               </a>
             </div>
             <div className="hero-note">
-              <span className="tiny-spark">✳</span> Your next chapter starts
-              with the right technology.
+              <span className="tiny-spark">✳︎</span> Navigating Your Digital
+              Future.
             </div>
           </div>
           <div className="hero-visual">
+            <div className="hero-aura" aria-hidden="true" />
+            <div className="hero-coordinate" aria-hidden="true">
+              VX / SYSTEM 01 <span>+</span>
+            </div>
             <div className="orbit orbit-one" />
             <div className="orbit orbit-two" />
             <div className="visual-label">
@@ -332,6 +340,7 @@ export default function Home() {
             ))}
           </div>
         </section>
+        <Platform />
         <section id="approach" className="approach section">
           <div className="approach-heading">
             <div className="eyebrow">/ HOW WE MAKE IT HAPPEN</div>
@@ -380,7 +389,7 @@ export default function Home() {
             <img src="/logo.svg" alt="Viaprix symbol" />
             <span>NAVIGATING YOUR DIGITAL FUTURE</span>
             <div className="art-coord">
-              6.9271° N　79.8612° E <Plus size={16} />
+              IDEAS → SYSTEMS → POSSIBILITIES <Plus size={16} />
             </div>
           </div>
           <div className="about-copy">
@@ -522,6 +531,7 @@ export default function Home() {
                 <option>ERP solution</option>
                 <option>POS system</option>
                 <option>Custom software</option>
+                <option>SaaS platform</option>
                 <option>Something else</option>
               </select>
             </label>
