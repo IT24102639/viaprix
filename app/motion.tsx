@@ -48,7 +48,7 @@ export default function Motion() {
           !!target.closest("a,button,input,textarea,select"),
         );
         const next = target.closest<HTMLElement>(
-          ".service-card, .feature-card, .hero-visual, .platform-window, .about-art",
+          ".service-card, .feature-card, .hero-visual, .transformation-visual, .about-art",
         );
         if (card !== next) {
           resetCard();

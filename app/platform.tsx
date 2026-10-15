@@ -1,5 +1,3 @@
-"use client";
-import { useState } from "react";
 import {
   ArrowUpRight,
   Layers3,
@@ -8,59 +6,8 @@ import {
   Workflow,
   BarChart3,
   Check,
-  ChevronRight,
-  Plus,
-  CircleDot,
-  Box,
-  ArrowRight,
 } from "lucide-react";
-const views = [
-  {
-    name: "Overview",
-    title: "Your entire business. One clear view.",
-    metric: "Rs. 842,500",
-    label: "Revenue this month",
-    change: "+18.6%",
-    bars: [35, 48, 43, 65, 58, 77, 69, 88, 79, 95, 87, 100],
-    tasks: [
-      "Store inventory synced",
-      "Monthly report generated",
-      "Customer records updated",
-    ],
-    note: "A connected view of sales, inventory, and everyday operations.",
-  },
-  {
-    name: "Retail & POS",
-    title: "Every sale. A better experience.",
-    metric: "1,284",
-    label: "Orders this month",
-    change: "+12.4%",
-    bars: [25, 39, 55, 41, 62, 51, 74, 68, 86, 76, 94, 88],
-    tasks: [
-      "Sale #1284 completed",
-      "Stock levels updated",
-      "Daily sales report ready",
-    ],
-    note: "Keep the checkout moving and your stock in sync.",
-  },
-  {
-    name: "Operations",
-    title: "Less busywork. More momentum.",
-    metric: "856",
-    label: "Active customer records",
-    change: "+8.2%",
-    bars: [20, 28, 38, 33, 50, 61, 54, 76, 71, 83, 90, 97],
-    tasks: [
-      "New customer onboarded",
-      "Purchase order approved",
-      "Team workspace synced",
-    ],
-    note: "Connect your teams and make everyday workflows simpler.",
-  },
-];
 export default function Platform() {
-  const [tab, setTab] = useState(0);
-  const view = views[tab];
   return (
     <>
       <section className="section saas-section" id="saas">
@@ -87,9 +34,9 @@ export default function Platform() {
               <Cloud size={13} /> BUILT FOR THE CLOUD
             </div>
             <h3>
-              Your workspace.
+              Your business.
               <br />
-              Reimagined.
+              Digitally connected.
             </h3>
             <p>
               Bring your tools, teams, and workflows into one place. We design
@@ -110,128 +57,24 @@ export default function Platform() {
             <a className="text-link" href="#contact">
               Explore your SaaS possibilities <ArrowUpRight size={16} />
             </a>
-            <small>Interactive concept · Sample data</small>
           </div>
-          <div className="platform-window">
-            <div className="window-chrome">
+          <figure className="transformation-visual">
+            <div className="transformation-ambient" aria-hidden="true" />
+            <img
+              src="/images/digital-transformation.webp"
+              alt="A luminous digital core connects cloud services, business data, and retail systems into one digital ecosystem."
+              width={1536}
+              height={1024}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
               <span>
-                <i />
-                <i />
-                <i />
+                <i /> FROM COMPLEXITY TO CONNECTION
               </span>
-              <div>
-                <LockKeyhole size={10} /> viaprix / workspace
-              </div>
-              <Layers3 size={14} />
-            </div>
-            <div className="platform-toolbar">
-              <div className="workspace-icon">
-                <Box size={18} />
-              </div>
-              <span>
-                Business workspace<small>Your next chapter, connected.</small>
-              </span>
-              <span className="synced">
-                <CircleDot size={10} /> In sync
-              </span>
-            </div>
-            <div
-              className="platform-tabs"
-              role="tablist"
-              aria-label="Business dashboard demo"
-            >
-              {views.map((v, i) => (
-                <button
-                  key={v.name}
-                  id={`workspace-tab-${i}`}
-                  role="tab"
-                  aria-selected={tab === i}
-                  aria-controls="workspace-panel"
-                  tabIndex={tab === i ? 0 : -1}
-                  onClick={() => setTab(i)}
-                  onKeyDown={(e) => {
-                    if (
-                      ["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)
-                    ) {
-                      e.preventDefault();
-                      const next =
-                        e.key === "Home"
-                          ? 0
-                          : e.key === "End"
-                            ? 2
-                            : (tab + (e.key === "ArrowRight" ? 1 : 2)) % 3;
-                      setTab(next);
-                      document.getElementById(`workspace-tab-${next}`)?.focus();
-                    }
-                  }}
-                >
-                  {v.name}
-                  {tab === i && <span />}
-                </button>
-              ))}
-            </div>
-            <div
-              id="workspace-panel"
-              role="tabpanel"
-              aria-labelledby={`workspace-tab-${tab}`}
-              className="platform-panel"
-              key={tab}
-            >
-              <div className="panel-title">
-                <h4>{view.title}</h4>
-                <span>Monthly overview</span>
-              </div>
-              <div className="platform-stats">
-                <div>
-                  <span>{view.label}</span>
-                  <strong>{view.metric}</strong>
-                  <small>
-                    {view.change} <span>vs. last month</span>
-                  </small>
-                </div>
-                <div
-                  className="bar-chart"
-                  aria-label={`${view.name} illustrative activity chart`}
-                >
-                  {view.bars.map((v, i) => (
-                    <div
-                      style={{ height: v + "%", animationDelay: `${i * 35}ms` }}
-                      key={i}
-                    >
-                      <i />
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="chart-months">
-                <span>WEEK 01</span>
-                <span>WEEK 02</span>
-                <span>WEEK 03</span>
-                <span>WEEK 04</span>
-              </div>
-              <div className="activity-head">
-                WORKSPACE ACTIVITY{" "}
-                <span>
-                  View only <ArrowUpRight size={11} />
-                </span>
-              </div>
-              <div className="activity-list">
-                {view.tasks.map((t, i) => (
-                  <div key={t}>
-                    <span>
-                      <Check size={12} />
-                    </span>
-                    <p>{t}</p>
-                    <small>{i + 1} min ago</small>
-                  </div>
-                ))}
-              </div>
-              <div className="panel-footer">
-                <span className="live-dot" />
-                {view.note}
-              </div>
-            </div>
-          </div>
+              <span>THE VIAPRIX WAY ↗</span>
+            </figcaption>
+          </figure>
         </div>
       </section>
       <section className="section features-section">
