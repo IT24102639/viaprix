@@ -1,6 +1,9 @@
 "use client";
 import { useState } from "react";
 import Motion from "./motion";
+import Intro from "./intro";
+import HeroScene from "./hero-scene";
+import Industries from "./industries";
 import Platform from "./platform";
 import {
   ArrowUpRight,
@@ -13,14 +16,6 @@ import {
   Minus,
   Menu,
   X,
-  LayoutDashboard,
-  ShoppingBag,
-  Package,
-  Users,
-  Settings,
-  Bell,
-  Search,
-  TrendingUp,
   Globe2,
   Zap,
   ShieldCheck,
@@ -55,10 +50,11 @@ export default function Home() {
   const [sent, setSent] = useState(false);
   return (
     <>
+      <Intro />
       <Motion />
       <header>
         <a href="#" className="brand">
-          <img src="/logo.svg" alt="" />
+          <img src="/logo-dark.svg" alt="" />
           <span>
             viaprix<span className="brand-dot">.</span>
           </span>
@@ -95,9 +91,9 @@ export default function Home() {
               <span className="live-dot" /> BUILT FOR WHAT’S NEXT
             </div>
             <h1>
-              Your next big move.
+              Navigating Your
               <br />
-              <span>Powered by Viaprix.</span>
+              <span>Digital Future.</span>
             </h1>
             <p>
               From everyday operations to extraordinary ideas. ERP, POS, SaaS,
@@ -116,173 +112,7 @@ export default function Home() {
               Future.
             </div>
           </div>
-          <div className="hero-visual">
-            <div className="hero-aura" aria-hidden="true" />
-            <div className="hero-coordinate" aria-hidden="true">
-              VX / SYSTEM 01 <span>+</span>
-            </div>
-            <div className="orbit orbit-one" />
-            <div className="orbit orbit-two" />
-            <div className="visual-label">
-              <span /> A LITTLE LESS COMPLEX. A LOT MORE POSSIBLE.
-            </div>
-            <div className="dashboard">
-              <aside>
-                <div className="dash-logo">
-                  <img src="/logo.svg" alt="" /> viaprix<span> workspace</span>
-                </div>
-                <div className="workspace">
-                  Your workspace <span>⌄</span>
-                </div>
-                <div className="side-item selected">
-                  <LayoutDashboard /> Overview
-                </div>
-                <div className="side-item">
-                  <ShoppingBag /> Sales
-                </div>
-                <div className="side-item">
-                  <Package /> Inventory
-                </div>
-                <div className="side-item">
-                  <Users /> Customers
-                </div>
-                <div className="side-bottom">
-                  <Settings /> Settings
-                </div>
-              </aside>
-              <div className="dash-main">
-                <div className="dash-top">
-                  <span>
-                    Workspace <span>/ Overview</span>
-                  </span>
-                  <div>
-                    <Search size={12} />
-                    <Bell size={12} />
-                    <b>JD</b>
-                  </div>
-                </div>
-                <div className="dash-heading">
-                  <div>
-                    <h3>
-                      Business overview <span>✧</span>
-                    </h3>
-                    <p>Here’s how your business is doing today.</p>
-                  </div>
-                  <span className="date">This month ⌄</span>
-                </div>
-                <div className="metrics">
-                  <div>
-                    <span>Total revenue</span>
-                    <strong>Rs. 842,500</strong>
-                    <small>
-                      ↗ 18.6% <span>vs last month</span>
-                    </small>
-                  </div>
-                  <div>
-                    <span>Total orders</span>
-                    <strong>1,284</strong>
-                    <small>
-                      ↗ 12.4% <span>vs last month</span>
-                    </small>
-                  </div>
-                  <div>
-                    <span>Active customers</span>
-                    <strong>856</strong>
-                    <small>
-                      ↗ 8.2% <span>vs last month</span>
-                    </small>
-                  </div>
-                </div>
-                <div className="chart">
-                  <div className="chart-title">
-                    <b>Revenue overview</b>
-                    <span>
-                      <i /> Revenue　 ···
-                    </span>
-                  </div>
-                  <div className="chart-body">
-                    <div className="axis">
-                      <span>900k</span>
-                      <span>600k</span>
-                      <span>300k</span>
-                      <span>0</span>
-                    </div>
-                    <svg viewBox="0 0 400 130" preserveAspectRatio="none">
-                      <defs>
-                        <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
-                          <stop stopColor="#ff0140" stopOpacity=".17" />
-                          <stop
-                            offset="1"
-                            stopColor="#ff0140"
-                            stopOpacity="0"
-                          />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        d="M0 110 C25 110 25 80 50 85 S90 105 115 73 S145 87 170 62 S210 85 235 50 S265 64 290 30 S325 55 350 22 S380 35 400 5 L400 130 L0 130Z"
-                        fill="url(#fill)"
-                      />
-                      <path
-                        d="M0 110 C25 110 25 80 50 85 S90 105 115 73 S145 87 170 62 S210 85 235 50 S265 64 290 30 S325 55 350 22 S380 35 400 5"
-                        fill="none"
-                        stroke="#ff0140"
-                        strokeWidth="3"
-                      />
-                    </svg>
-                  </div>
-                  <div className="months">
-                    <span>May</span>
-                    <span>Jun</span>
-                    <span>Jul</span>
-                    <span>Aug</span>
-                    <span>Sep</span>
-                    <span>Oct</span>
-                  </div>
-                </div>
-                <div className="recent">
-                  <b>Recent transactions</b>
-                  <span>View all ↗</span>
-                </div>
-                {["Invoice #INV-1284", "Invoice #INV-1283"].map((x, i) => (
-                  <div className="transaction" key={x}>
-                    <span className="transaction-icon">
-                      <ShoppingBag size={12} />
-                    </span>
-                    <b>{x}</b>
-                    <span>Today, 10:{i ? "24" : "42"} AM</span>
-                    <em>Completed</em>
-                    <strong>Rs. {i ? "12,800" : "24,500"}</strong>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="floating connected">
-              <div className="float-icon">
-                <Check size={17} />
-              </div>
-              <div>
-                <strong>Everything. Connected.</strong>
-                <span>One platform. Endless possibilities.</span>
-              </div>
-            </div>
-            <div className="floating growth">
-              <span>
-                <TrendingUp size={18} /> Built to grow
-              </span>
-              <strong>With your business.</strong>
-              <div className="mini-bars">
-                {[25, 40, 32, 55, 48, 65, 82, 96].map((v, i) => (
-                  <i key={i} style={{ height: v + "%" }} />
-                ))}
-              </div>
-            </div>
-            <div className="visual-bottom">
-              <span>
-                <span className="live-dot" /> ALL SYSTEMS, IN SYNC
-              </span>
-              <span>DESIGNED AROUND YOU ↗</span>
-            </div>
-          </div>
+          <HeroScene />
         </section>
         <section className="promise-strip">
           <span>
@@ -341,6 +171,7 @@ export default function Home() {
           </div>
         </section>
         <Platform />
+        <Industries />
         <section id="approach" className="approach section">
           <div className="approach-heading">
             <div className="eyebrow">/ HOW WE MAKE IT HAPPEN</div>
@@ -386,7 +217,7 @@ export default function Home() {
         <section className="about section" id="about">
           <div className="about-art">
             <div className="art-grid" />
-            <img src="/logo.svg" alt="Viaprix symbol" />
+            <img src="/logo-dark.svg" alt="Viaprix symbol" />
             <span>NAVIGATING YOUR DIGITAL FUTURE</span>
             <div className="art-coord">
               IDEAS → SYSTEMS → POSSIBILITIES <Plus size={16} />
@@ -564,7 +395,7 @@ export default function Home() {
       </main>
       <footer>
         <a href="#" className="brand">
-          <img src="/logo.svg" alt="" />
+          <img src="/logo-dark.svg" alt="" />
           <span>
             viaprix<span className="brand-dot">.</span>
           </span>

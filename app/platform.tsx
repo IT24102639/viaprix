@@ -253,7 +253,7 @@ export default function Platform() {
             <div className="integration-art" aria-hidden="true">
               <div className="integration-line" />
               <div className="integration-center">
-                <img src="/logo.svg" alt="" />
+                <img src="/logo-dark.svg" alt="" />
               </div>
               <span className="integration-node node-one">
                 <Layers3 />
