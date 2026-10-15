@@ -3261,3 +3261,12 @@ footer {
 .tiny-spark {
   font-variant-emoji: text;
 }
+.hero-copy,
+.hero-visual {
+  min-width: 0;
+}
+@media (max-width: 950px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
